@@ -37,9 +37,8 @@ let nameWithId;
 // VARIAVEL DO LINK GERADO PARA O USUARIO
 // let costumerUrl;
 
-// NGROK URL
-let ngrokUrl =
-  "https://0786-2804-14d-8483-4a69-1cb5-8075-4834-9eee.ngrok-free.app";
+let netlifyUrl =
+  "https://artjoy.netlify.app/";
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
@@ -113,7 +112,7 @@ submitBtn.addEventListener("click", async (event) => {
 
     // Cria a sessão de checkout
     const checkoutResponse = await fetch(
-      `${ngrokUrl}/create-checkout-session`,
+      `${netlifyUrl}/create-checkout-session`,
       {
         method: "POST",
         headers: {
@@ -160,7 +159,7 @@ async function uploadFiles() {
 
   try {
     // Enviar os dados e arquivos para o servidor
-    const response = await fetch(`${ngrokUrl}/api/upload`, {
+    const response = await fetch(`${netlifyUrl}/api/upload`, {
       method: "POST",
       body: formData, // Envie o FormData diretamente
     });
