@@ -1,0 +1,45 @@
+:root {
+    --pink: #ff5a73;
+    --blue: #000027;
+    --white: white;
+  }
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#photoPreview {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+#photoPreview img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    position: relative;
+    border-radius: 6px;
+}
+#photoPreview div {
+    position: relative;
+}
+#previewBtn {
+    position: absolute;
+    top: 0; /* Move the button slightly above the image */
+    right: 0; /* Move the button slightly to the right of the image */
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: 50% 0 50% 50% ; /* Makes the button round */
+    width: 1.3rem; /* Set button width */
+    height: 1.3rem; /* Set button height */
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.4rem;
+    padding-left: 0rem;
+}

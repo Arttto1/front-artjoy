@@ -1,0 +1,60 @@
+:root {
+    --light-pink: #f59eab;
+    --pink: #d43f55;
+    --blue: #000027;
+    --white: white;
+    --light-blue: #0e004f;
+  }
+  
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "fredoka";
+  }
+  
+  html {
+    height: 100%;
+  }
+
+body {
+    /* height: 100%; */
+    background-color: var(--light-pink);
+    color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--pink);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+main{
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+p {
+    font-size: 2rem;
+}
+
+li {
+    font-size: 1.5rem;
+}
+
+#copy {
+    color: var(--light-blue);
+    margin: 2rem 0;
+}

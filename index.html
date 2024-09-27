@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="styles/second.css"/> -->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/photoPreview.css" />
+    <link rel="stylesheet" href="styles/alertBox.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.0/purify.min.js"></script>
+    <script src="scripts/checkyoutube.js" defer></script>
+    <script src="scripts/scripts.js" defer></script>
+    <script type="module" src="scripts/storedImages.js" defer></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"
+    ></script>
+    <title>Art&Joy</title>
+  </head>
+  <body>
+    <header>
+      <!-- <img src="images/pngegg.png" alt="logo" />
+      <h1>Art&Joy</h1> -->
+    </header>
+    <main id="mainLoader">
+      <form id="websiteForm" method="POST" action="/webhook">
+        <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+        <div class="container">
+          <div class="item1">
+            <div id="title">
+              <h2>Gift <span id="span1">Your</span> <span id="span2">Love</span></h2>
+              <p>
+                Make your photo with your love bloom and get a dynamic
+                relationship time counter. Fill out the form and receive your
+                personalized website + QR to share with your loved one.
+              </p>
+            </div>
+            <div id="plano">
+              <button class="planoBtn" id="oneyear">
+                1 Year, 3 Photos, No Music - $4.99
+              </button>
+              <button class="planoBtn" id="lifetime">
+                Life Time, 7 Photos, With Music - $9.49
+              </button>
+            </div>
+            <div id="form">
+              <div id="namedate">
+                <div id="name">
+                  <label id="namelabel" for="nomecasal">Couple's Name:</label>
+                  <input
+                    type="text"
+                    id="nomecasal"
+                    name="nome-casal"
+                    placeholder="For example: Arthur and Joyce (no emojis)"
+                  />
+                </div>
+                <div id="date">
+                  <label for="datainicio" id="datelabel"
+                    >Beginning of the relationship:</label
+                  >
+                  <input type="date" id="datainicio" name="data-inicio" />
+                </div>
+              </div>
+              <div id="messagelabel">
+                <label for="message">Type a message:</label>
+              </div>
+              <div id="messagearea">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Type a beautiful message here!"
+                ></textarea>
+              </div>
+              <div id="filediv">
+                <input type="file" accept="image/*" id="fileInput" multiple />
+                <label id="filelabel" for="fileInput">
+                  <span class="material-symbols-outlined">add_a_photo</span>
+                  Upload your Photos
+                </label>
+              </div>
+              <div id="photoPreview"></div>
+              <div id="youtubeDiv">
+                <label for="youtubeInput"
+                  >Enter a Youtube Music (Optional)</label
+                >
+                <div id="ytbBtnInput">
+
+                  <input
+                  id="youtubeInput"
+                  name="youtube-Input"
+                  placeholder="Youtube URL"
+                  />
+                  <button id="check-video"><span>Valid?</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item2">
+            <div id="preview">
+              <p id="previewText">Preview Your Website 👇</p>
+              <div id="placeholder">
+                <!-- ANIMAÇAO CORAÇÃO -->
+                <div id="heart-container"></div>
+                <!-- FIM ANIMAÇÃO CORAÇÃO -->
+
+                <section id="secondSection">
+                  <h1 id="headerTitle">Couple's Name</h1>
+
+                  <p id="timer">We've been together for:</p>
+                  <div id="photoPlaceholder">
+                    <p id="photoPlaceholderText">Couple's Photo</p>
+
+                    <div class="square"><p>Image</p></div>
+                  </div>
+                  <div id="divImagePreview"></div>
+                  <p id="messageSecond">Your message is going to be here!</p>
+                  <!-- <button id="muteBtn">Click Me!</button> -->
+                </section>
+              </div>
+            </div>
+            <div id="botão">
+              <button type="submit" id="submitButton" disabled>
+                Create Website
+              </button>
+              <div class="wrap">
+                <div class="loading">
+                  <div class="bounceball"></div>
+                  <div class="text">Sending to Checkout</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div id="thirdSection">
+        <div id="howWorks">
+          <h2>How it Works?</h2>
+          <div id="steps">
+            <div class="step">
+              <p>1 - Enter the Information 📋</p>
+            </div>
+            <div class="step">
+              <p>2 - Complete the Payment 💰</p>
+            </div>
+            <div class="step">
+              <p>3 - Receive the Website + QR Code in Your Email ✉️</p>
+            </div>
+            <div class="step">
+              <p>4 - Surprise Your Loved One ❤️</p>
+            </div>
+          </div>
+          <div id="stepOnOff">
+            <div id="stepsCelular">
+              <div id="step1">
+                <div class="stepCelular">
+                  <p>1 - Enter the Information 📋</p>
+                </div>
+                <div class="stepCelular">
+                  <p>2 - Complete the Payment 💰</p>
+                </div>
+              </div>
+              <div id="step2">
+                <div class="stepCelular">
+                  <p>3 - Receive the Website + QR Code in Your Email ✉️</p>
+                </div>
+                <div class="stepCelular">
+                  <p>4 - Surprise Your Loved One ❤️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="faq">
+          <h1>Frequently Asked Questions (FAQ)</h1>
+          <div class="faq-item">
+              <h2>What is Art&Joy?</h2>
+              <p>Art&Joy is a platform that allows couples to create personalized relationship pages. You can add photos, a special message, and a live counter showing how long you've been together.</p>
+          </div>
+          <div class="faq-item">
+              <h2>How can I create a personalized page on Art&Joy?</h2>
+              <p>To create a page, fill out the form with the couple's names, relationship start date, a message, and up to 8 photos. Then, click on the "Create Website" button and complete the payment.</p>
+          </div>
+          <div class="faq-item">
+              <h2>What is included in my personalized page?</h2>
+              <p>Your page will feature a live counter showing how long you've been together, a photo slideshow, and a personalized declaration message. Additionally, heart fall on the screen with a beautiful animation.</p>
+          </div>
+          <div class="faq-item">
+              <h2>How do I receive my page after payment?</h2>
+              <p>After payment, you will receive a QR code to share with your partner and a link via email to access the page.</p>
+          </div>
+          <div class="faq-item">
+              <h2>Does the personalized page have an expiration?</h2>
+              <p>With the basic plan, yes – the page lasts for 1 year. In the advanced plan, the page is available for life.</p>
+          </div>
+          <div class="faq-item">
+              <h2>What does it cost to create a page on Art&Joy?</h2>
+              <p>Currently, it costs only $4.99 for the basic plan and $9.49 for the advanced plan.</p>
+          </div>
+          <div class="faq-item">
+              <h2>How long does it take to get the QR code via email?</h2>
+              <p>Credit card and debit card payments are processed instantly.</p>
+          </div>
+          <div class="faq-item">
+              <h2>What are the accepted payment methods?</h2>
+              <p>We accept payments via credit card or debit card.</p>
+          </div>
+          <div class="faq-item">
+              <h2>How can I contact customer support?</h2>
+              <p>You can contact our support team at the email andreeliasdev@gmail.com.</p>
+          </div>
+        </div>
+        <a href="#" class="backTop"><button>Create Website</button></a>
+        <div id="youtubePlayer"></div>
+        <div id="customAlert" class="hidden">
+          <div class="alert-content">
+              <span id="alertMessage"></span>
+              <button id="closeAlertBtn">OK</button>
+          </div>
+      </div>
+      </div>
+      <footer style="background-color: #333; color: white; padding: 10px 0; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+          <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+          <p style="color: rgb(46, 194, 46);">We use Stripe for secure payments. Your information is safe with us!</p>
+          <ul style="list-style-type: none; padding: 0; display: flex; justify-content: center; gap: 20px;">
+            <li><a href="/privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="/terms.html" style="color: white; text-decoration: none;">Terms of Service</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

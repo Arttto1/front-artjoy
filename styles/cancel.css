@@ -1,0 +1,113 @@
+:root {
+    --light-pink: #f59eab;
+    --pink: rgb(212, 63, 85);
+    --blue: #000027;
+    --white: white;
+    --light-blue: #0e004f;
+  }
+  
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "fredoka";
+  }
+  
+  html {
+    height: 100%;
+  }
+
+body {
+    height: 100%;
+    background-color: var(--light-pink);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    background-color: var(--light-blue);
+    color: white;
+    width: 60%;
+    padding: 1rem 2rem;
+    text-align: center;
+    border: 3px solid var(--light-blue);
+    border-radius: 10px;
+}
+
+h1 {
+    color: var(--pink);
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    text-shadow: 4px 4px 0px var(--light-blue), 6px 6px 2px var(--light-pink);
+
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+#email{
+    color: rgb(46, 194, 46);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#hope {
+    color: var(--pink);
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: var(--pink);
+    color: white;
+    font-family: "fredoka";
+    border-radius: 6px;
+    border: none;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    div {
+        width: 80%;
+    }
+    h1 {
+        font-size: 2rem;
+        text-shadow: 2px 2px 0px var(--light-blue), 3px 3px 1px var(--light-pink);
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+    
+    p{
+        font-size: 0.75rem;
+    }
+    #hope{
+        font-size: 1rem;
+    }
+    a {
+        font-size: 0.75rem;
+    }
+}
