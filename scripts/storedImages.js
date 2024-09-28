@@ -37,8 +37,8 @@ let nameWithId;
 // VARIAVEL DO LINK GERADO PARA O USUARIO
 // let costumerUrl;
 
-let netlifyUrl =
-  "https://artjoy.netlify.app/";
+let vercelUrl =
+  "https://api-joyart.vercel.app";
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
