@@ -7,6 +7,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player; // Variável para armazenar a instância do player
 let isPlaying = false;
 
+let vercelUrl =
+  "https://api-artjoywebsite.vercel.app";
+
 // LINK DINÂMICO
 function getQueryParam(name) {
   const urlParams = new URLSearchParams(window.location.search);
@@ -27,7 +30,7 @@ const muteBtn = document.getElementById("muteBtn");
 // PEGAR AS INFORMAÇÕES DO FIRESTORE
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(`/api/submissions/${urlName}`)
+  fetch(`${vercelUrl}/api/submissions/${urlName}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error('Erro ao buscar dados');
