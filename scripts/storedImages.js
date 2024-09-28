@@ -38,7 +38,7 @@ let nameWithId;
 // let costumerUrl;
 
 let vercelUrl =
-  "api-artjoywebsite.vercel.app";
+  "https://api-artjoywebsite.vercel.app/";
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
