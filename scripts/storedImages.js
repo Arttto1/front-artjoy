@@ -32,12 +32,14 @@ let db;
 
 let selectedItem = null;
 // VARIAVEL PARA O NOME DO ARQUIVO CODIFICADO COM O DATENOW
-let nameWithId;
 
 // VARIAVEL DO LINK GERADO PARA O USUARIO
 // let costumerUrl;
 
-let vercelUrl =
+// let vercelUrl =
+//   "https://api-artjoywebsite.vercel.app";
+
+  let vercelUrl =
   "https://api-artjoywebsite.vercel.app";
 
 // Captura o valor do input
@@ -105,10 +107,12 @@ submitBtn.addEventListener("click", async (event) => {
   submitBtn.style.display = "none";
   loadingBtn.style.display = "flex";
 
+
+  const nameWithId = `${form.elements['nome-casal'].value.replace(/\s+/g, "_")}_${Date.now()}`;
   // COMUNICAÇÃO COM O SERVIDOR
   try {
     // Chama a função para fazer o upload dos arquivos após a inicialização
-    await uploadFiles();
+    await uploadFiles(nameWithId);
 
     // Cria a sessão de checkout
     const checkoutResponse = await fetch(
@@ -120,6 +124,7 @@ submitBtn.addEventListener("click", async (event) => {
         },
         body: JSON.stringify({
           items: [{ id: selectedItem.id, quantity: 1 }],
+          nameWithId: nameWithId
         }),
       }
     );
@@ -136,7 +141,7 @@ submitBtn.addEventListener("click", async (event) => {
   }
 });
 
-async function uploadFiles() {
+async function uploadFiles(nameWithId) {
   if (youtubeInput.value.trim() !== "") {
     embedUrl = getEmbedUrl(videoUrl);
   }
@@ -146,6 +151,7 @@ async function uploadFiles() {
     name: formData.get("nome-casal"),
     message: DOMPurify.sanitize(formData.get("message")),
     urlYtb: embedUrl ? embedUrl : "",
+    nameWithId: nameWithId
   };
 
   // Adicionar os dados ao FormData como JSON string
