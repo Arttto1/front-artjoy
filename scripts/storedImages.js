@@ -112,7 +112,7 @@ submitBtn.addEventListener("click", async (event) => {
 
     // Cria a sessão de checkout
     const checkoutResponse = await fetch(
-      `${netlifyUrl}/create-checkout-session`,
+      `${vercelUrl}/create-checkout-session`,
       {
         method: "POST",
         headers: {
@@ -159,7 +159,7 @@ async function uploadFiles() {
 
   try {
     // Enviar os dados e arquivos para o servidor
-    const response = await fetch(`${netlifyUrl}/api/upload`, {
+    const response = await fetch(`${vercelUrl}/api/upload`, {
       method: "POST",
       body: formData, // Envie o FormData diretamente
     });
