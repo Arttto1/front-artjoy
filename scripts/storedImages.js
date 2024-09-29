@@ -19,6 +19,8 @@ const nomeCasal = document.getElementById("nomecasal");
 const messageText = document.getElementById("message");
 const messagePreview = document.getElementById("messageSecond");
 
+const userEmail = document.getElementById("userEmail");
+
 let youtubeInput = document.getElementById("youtubeInput");
 let videoUrl = null;
 let embedUrl = null;
@@ -39,17 +41,15 @@ let selectedItem = null;
 // let vercelUrl =
 //   "https://api-artjoywebsite.vercel.app";
 
-  let vercelUrl =
-  "https://api-artjoywebsite.vercel.app";
+let vercelUrl = "https://api-artjoywebsite.vercel.app";
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
-  videoUrl = youtubeInput.value; // Captura o valor atual do input
+  videoUrl = DOMPurify.sanitize(youtubeInput.value); // Captura o valor atual do input
 });
 
 // Função para obter o ID do vídeo
 function getEmbedUrl(videoUrl) {
-
   if (!videoUrl || typeof videoUrl !== "string") {
     console.error("URL vazia ou inválida");
     return null;
@@ -107,8 +107,12 @@ submitBtn.addEventListener("click", async (event) => {
   submitBtn.style.display = "none";
   loadingBtn.style.display = "flex";
 
-
-  const nameWithId = `${form.elements['nome-casal'].value.replace(/\s+/g, "_")}_${Date.now()}`;
+  const nameWithIdnopurify = `${form.elements["nome-casal"].value.replace(
+    /\s+/g,
+    "_"
+  )}_${Date.now()}`;
+  const nameWithId = DOMPurify.sanitize(nameWithIdnopurify);
+  const userEmail = DOMPurify.sanitize(formData.get("user-email"));
   // COMUNICAÇÃO COM O SERVIDOR
   try {
     // Chama a função para fazer o upload dos arquivos após a inicialização
@@ -124,7 +128,8 @@ submitBtn.addEventListener("click", async (event) => {
         },
         body: JSON.stringify({
           items: [{ id: selectedItem.id, quantity: 1 }],
-          nameWithId: nameWithId
+          nameWithId: nameWithId,
+          userEmail: userEmail,
         }),
       }
     );
@@ -148,10 +153,11 @@ async function uploadFiles(nameWithId) {
   const formData = new FormData(form);
   const data = {
     date: DOMPurify.sanitize(formData.get("data-inicio")),
-    name: formData.get("nome-casal"),
+    name: DOMPurify.sanitize(formData.get("nome-casal")),
     message: DOMPurify.sanitize(formData.get("message")),
     urlYtb: embedUrl ? embedUrl : "",
-    nameWithId: nameWithId
+    nameWithId: nameWithId,
+    userEmail: userEmail,
   };
 
   // Adicionar os dados ao FormData como JSON string

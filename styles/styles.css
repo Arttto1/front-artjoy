@@ -202,6 +202,15 @@ label {
   color: white;
 }
 
+#email {
+  display: flex;
+  flex-direction: column;
+}
+
+#emailLabel {
+  margin: 1rem 0 0.5rem 0;
+}
+
 #fileInput {
   display: none;
 }
