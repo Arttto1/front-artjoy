@@ -112,7 +112,7 @@ submitBtn.addEventListener("click", async (event) => {
     "_"
   )}_${Date.now()}`;
   const nameWithId = DOMPurify.sanitize(nameWithIdnopurify);
-  const userEmail = DOMPurify.sanitize(formData.get("user-email"));
+  const userEmail = DOMPurify.sanitize(form.elements["user-email"].value);
   // COMUNICAÇÃO COM O SERVIDOR
   try {
     // Chama a função para fazer o upload dos arquivos após a inicialização
