@@ -267,7 +267,7 @@ function createHeart() {
   setTimeout(() => heart.remove(), fallDuration * 1000 * 0.7);
 }
 
-let intervalId;
+let intervalIdHeart;
 let resizeTimeout;
 
 // Função para calcular o intervalo com base no tamanho da tela
@@ -288,13 +288,13 @@ function calculateInterval() {
 // Função para iniciar a criação de corações
 function startHeartCreation() {
   // Limpar qualquer intervalo existente
-  clearInterval(intervalId);
+  clearInterval(intervalIdHeart);
 
   // Ajustar o intervalo com base no tamanho atual da tela
   const interval = calculateInterval();
 
   // Iniciar o setInterval com o novo intervalo
-  intervalId = setInterval(createHeart, interval);
+  intervalIdHeart = setInterval(createHeart, interval);
 }
 
 // Event listener para detectar mudanças no tamanho da tela

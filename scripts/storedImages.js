@@ -116,7 +116,7 @@ submitBtn.addEventListener("click", async (event) => {
   // COMUNICAÇÃO COM O SERVIDOR
   try {
     // Chama a função para fazer o upload dos arquivos após a inicialização
-    await uploadFiles(nameWithId);
+    await uploadFiles(nameWithId, userEmail);
 
     // Cria a sessão de checkout
     const checkoutResponse = await fetch(
@@ -146,7 +146,7 @@ submitBtn.addEventListener("click", async (event) => {
   }
 });
 
-async function uploadFiles(nameWithId) {
+async function uploadFiles(nameWithId, userEmail) {
   if (youtubeInput.value.trim() !== "") {
     embedUrl = getEmbedUrl(videoUrl);
   }
@@ -249,38 +249,6 @@ btn2.addEventListener("click", function (event) {
 });
 
 let timeout; // Variável para armazenar o timeout
-
-// Os eventos de mouse são os mesmos
-// muteBtn.addEventListener("click", function (event) {
-//   event.preventDefault();
-
-//   if (muteBtn.textContent === "Click Me!") {
-//     muteBtn.textContent = "Pause Music";
-//   } else if (muteBtn.textContent === "Play Music") {
-//     muteBtn.textContent = "Pause Music";
-//   } else {
-//     muteBtn.textContent = "Play Music";
-//   }
-// });
-
-// muteBtn.addEventListener("mousedown", function () {
-//   muteBtn.style.transform = "scale(0.95)"; // Reduz levemente o botão
-//   muteBtn.style.backgroundColor = "#ff5a73"; // Muda a cor para um tom mais escuro
-// });
-
-// muteBtn.addEventListener("mouseup", function () {
-//   timeout = setTimeout(function () {
-//     muteBtn.style.transform = "scale(1)"; // Restaura o botão ao tamanho normal
-//     muteBtn.style.backgroundColor = "var(--pink)"; // Restaura a cor original
-//   }, 500); // Duração da animação após soltar o botão
-// });
-
-// muteBtn.addEventListener("mouseleave", function () {
-//   timeout = setTimeout(function () {
-//     muteBtn.style.transform = "scale(1)"; // Restaura o tamanho do botão
-//     muteBtn.style.backgroundColor = "#d43f55"; // Restaura a cor original
-//   }, 500);
-// });
 
 function isValidImage(file) {
   const validTypes = [

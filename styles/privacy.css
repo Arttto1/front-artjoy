@@ -47,14 +47,52 @@ h2 {
 }
 
 p {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 li {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+}
+
+main a {
+    color: #d43f55;
+}
+
+footer{
+    text-align: center;
+    margin: 2rem;
 }
 
 #copy {
     color: var(--light-blue);
-    margin: 2rem 0;
+}
+
+ footer a {
+    color: #d43f55;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    p{
+        font-size: 1.25rem;
+    }
+    li{
+        font-size: 1rem;
+    }
+    #copy{
+        font-size: 1rem;
+    }
+    footer {
+        margin: 1rem;
+    }
+    footer a{
+        font-size: 1rem;
+    }
 }
