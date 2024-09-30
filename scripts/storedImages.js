@@ -265,17 +265,6 @@ btn2.addEventListener("click", function (event) {
 
 let timeout; // Variável para armazenar o timeout
 
-function isValidImage(file) {
-  const validTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/gif",
-    "image/svg+xml",
-    "image/jpg",
-  ];
-  return validTypes.includes(file.type);
-}
-
 // MUDA AS IMAGENS DO PREVIEW
 let intervalId = null;
 
@@ -289,10 +278,7 @@ inputFile.addEventListener("change", function () {
   }
 
   files.forEach((file) => {
-    if (!isValidImage(file)) {
-      alert("Por favor, carregue apenas arquivos de imagem.");
-      return;
-    } else if (fileArray.length < maxFiles) {
+    if (fileArray.length < maxFiles) {
       fileArray.push(file);
       const reader = new FileReader();
       reader.onload = function (e) {
