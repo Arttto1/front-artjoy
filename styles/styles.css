@@ -57,16 +57,18 @@ header {
   font-weight: bold;
   color: var(--dark-pink);
   margin-top: 2rem;
+  text-align: center;
   /* text-shadow: 3.5px 3.5px 0px var(--light-pink), 7.5px 7.5px 0px white; */
 }
 
-#span3 {
-  font-size: 3rem;
+.item1 p {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
 }
 
-.item1 p {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
+#fillForm {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .item1 #plano {
@@ -74,6 +76,7 @@ header {
   border: 3px solid var(--light-blue);
   border-radius: 6px;
   height: auto;
+  display: none;
 }
 
 .planoBtn {
@@ -346,12 +349,18 @@ label {
 
 /* styles preview */
 
+.divItem2{
+  display: flex;
+  margin: auto 0;
+}
+
 .item2 {
   width: 25vw;
   overflow-wrap: break-word;
   height: 100%;
   margin: auto 0;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
+  align-items: center;
 }
 
 #previewText {
@@ -431,8 +440,8 @@ label {
 #photoPlaceholder .square {
   border: 3px solid var(--light-blue);
   border-radius: 6px;
-  background-color: rgb(63, 63, 63);
-  /* height: 100%; */
+  background-color: rgba(100, 100, 100, 0.5);
+  backdrop-filter: blur(10px);
   aspect-ratio: 3 / 4;
   justify-content: center;
   align-items: center;
@@ -810,11 +819,32 @@ header img {
   .item1 {
     width: 80%;
   }
-  .item1 #span1{
-   padding-left: 20px;
+  .item1 h2{
+    display: flex;
+    flex-direction: column;
   }
-  .item1 #span2{
-    padding-left: 50px;
+  .item1 #span1{
+    font-size: 3.5rem;
+    text-align: center;
+    /* padding-left: 15px; */
+    line-height: 3rem;
+   }
+   .item1 #span2{
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 3px 3px 0px #f5a2ae, 8px 8px 12px rgba(14, 0, 77, 0.7);
+    margin-bottom: 0.5rem;
+    color: #da3049;
+   }
+   .item1 p {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+   }
+   #fillForm{
+    font-size: 1rem;
+    margin-bottom: 1rem;
    }
   #namedate {
     flex-direction: column;
@@ -835,8 +865,11 @@ header img {
     display: block;
   }
   /* preview */
-  .item2 {
+  .divItem2 {
     width: 80%;
+  }
+  .item2 {
+    width: 100%;
   }
   #previewText {
     margin-top: 1rem;

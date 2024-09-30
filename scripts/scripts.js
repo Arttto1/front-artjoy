@@ -108,30 +108,55 @@ function createHeart() {
   // Remove o coração após a animação
   setTimeout(() => heart.remove(), fallDuration * 1000 * 0.7);
 }
-// Função para iniciar a criação de corações
-function startHeartCreation() {
-  heartInterval = setInterval(createHeart, 1000);
-}
+setInterval(createHeart, 500)
+// let intervalId;
+// let resizeTimeout;
 
-// Função para parar a criação de corações
-function stopHeartCreation() {
-  clearInterval(heartInterval);
-}
+// // Função para calcular o intervalo com base no tamanho da tela
+// function calculateInterval() {
+//   const width = window.innerWidth;
+//   const height = window.innerHeight;
 
-// Iniciar a criação de corações
-startHeartCreation();
+//   // Exemplo de ajuste de intervalo: mais corações em telas maiores
+//   if (width > 1200) {
+//     return 200; // Mais rápido em telas grandes
+//   } else if (width > 800) {
+//     return 600; // Médio em telas médias
+//   } else {
+//     return 1000; // Mais lento em telas pequenas
+//   }
+// }
 
-// Adiciona eventos para parar a animação
-document.addEventListener("visibilitychange", function() {
-  if (document.visibilityState === 'hidden') {
-    stopHeartCreation(); // Para a criação se a página estiver oculta
-  } else {
-    startHeartCreation(); // Reinicia a criação se a página estiver visível
-  }
-});
+// // Função para iniciar a criação de corações
+// function startHeartCreation() {
+//   // Limpar qualquer intervalo existente
+//   clearInterval(intervalId);
 
-window.addEventListener("blur", stopHeartCreation); // Para a criação ao perder foco
-window.addEventListener("focus", startHeartCreation); // Reinicia a criação ao ganhar foco
+//   // Ajustar o intervalo com base no tamanho atual da tela
+//   const interval = calculateInterval();
+
+//   // Iniciar o setInterval com o novo intervalo
+//   intervalId = setInterval(createHeart, interval);
+//   console.log(interval)
+// }
+
+// // Event listener para detectar mudanças no tamanho da tela
+// window.addEventListener("resize", function () {
+//   // Limpa o timeout anterior se houver (evita chamadas múltiplas desnecessárias)
+//   clearTimeout(resizeTimeout);
+
+//   // Espera 2 segundos antes de chamar a função para evitar problemas de desempenho
+//   resizeTimeout = setTimeout(() => {
+//     startHeartCreation();
+//   }, 2000);
+// });
+
+// Chamar a função ao carregar a página
+// startHeartCreation();
+
+setTimeout(() => {
+  heartCount = 0; // Reseta o contador de corações
+}, 20000);
 
 // FUNÇAO PARA MOSTRAR A PAGINA QUANDO ESTIVER CARREGADA
 window.addEventListener("load", function () {
