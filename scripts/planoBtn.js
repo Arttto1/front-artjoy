@@ -1,5 +1,5 @@
-const btn1 = document.getElementById("1year");
-const btn2 = document.getElementById("lifetime");
+const btn1 = document.getElementById("oneDiv");
+const btn2 = document.getElementById("lifeDiv");
 const white = "#FFFFFF";
 const blue = "#130065";
 const lightBlue = "#130065";

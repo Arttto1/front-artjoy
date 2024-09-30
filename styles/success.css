@@ -62,7 +62,17 @@ p {
     color: var(--pink);
     font-size: 2rem;
     font-weight: bolder;
-    margin-top: 1rem;
+    margin: 1rem;
+}
+
+#lixo {
+    width: 100%;
+    background-color: var(--light-pink);
+}
+#lixo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--light-blue);
 }
 
 button {
@@ -88,6 +98,10 @@ a {
 }
 
 @media (max-width: 800px) {
+    div{
+        width: 80%;
+        padding: 1rem 0.5rem;
+    }
     h1 {
         font-size: 2rem;
         text-shadow: 2px 2px 0px var(--light-blue), 3px 3px 1px var(--light-pink);
@@ -104,6 +118,9 @@ a {
         font-size: 1rem;
     }
     a {
+        font-size: 0.75rem;
+    }
+    #lixo h2 {
         font-size: 0.75rem;
     }
 }

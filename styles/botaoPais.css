@@ -1,0 +1,46 @@
+#botaoPais{
+    display: flex;
+    flex-direction: row;
+}
+
+#mundoDiv {
+    padding: 5px;
+    border-radius: 6px;
+}
+
+#brasilDiv {
+    display: flex;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+#brasil {
+    border: none;
+    background-color: transparent;
+}
+
+#brasil img{
+    height: 1.6rem;
+    width: 2rem;
+}
+
+#mundo {
+    border: none;
+    background-color: transparent;
+}
+
+#mundo img{
+    height: 2rem;
+    width: 2rem;
+}
+
+@media (max-width: 768px) {
+    #brasil img{
+        height: 1.2rem;
+        width: 1.5rem;
+    }
+    #mundo img{
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}

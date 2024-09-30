@@ -76,7 +76,8 @@ header {
   border: 3px solid var(--light-blue);
   border-radius: 6px;
   height: auto;
-  display: none;
+  justify-content: space-between;
+  /* display: none; */
 }
 
 .planoBtn {
@@ -90,6 +91,28 @@ header {
   border: none;
   border-radius: 6px;
   margin: 0.3rem;
+}
+
+#umDiv {
+  width: 50%;
+}
+
+#vidaDiv {
+  width: 50%;
+}
+
+#oneyear {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5px;
+}
+
+#lifetime {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5px;
 }
 
 .item1 button:hover {

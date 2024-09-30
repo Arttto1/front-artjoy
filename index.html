@@ -12,6 +12,8 @@
       rel="stylesheet"
     />
     <!-- <link rel="stylesheet" href="styles/second.css"/> -->
+    <link rel="icon" href="images/coração-512x512.png" type="image/x-icon" />
+     <link rel="stylesheet" href="styles/botaoPais.css">
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/photoPreview.css" />
     <link rel="stylesheet" href="styles/alertBox.css" />
@@ -33,18 +35,24 @@
       type="module"
       src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"
     ></script>
-    <title>Art&Joy</title>
+    <title>ArtJoy</title>
   </head>
   <body>
-    <header>
-      <!-- <img src="images/pngegg.png" alt="logo" />
-      <h1>Art&Joy</h1> -->
-    </header>
     <main id="mainLoader">
       <form id="websiteForm" method="POST" action="/webhook">
         <input type="hidden" value="<%= csrfToken %>" name="_csrf" />
         <div class="container">
           <div class="item1">
+            <div id="botaoPais">
+              <div id="mundoDiv">
+
+                <button id="mundo"><img src="images/mundo-512x512 (2).png" alt="WorldWide"></button>
+              </div>
+              <div id="brasilDiv">
+
+                <button id="brasil"><img src="images/brasil-512x512.png" alt=""></button>
+              </div>
+            </div>
             <div id="title">
               <h2>
                 <span id="span1">Gift your</span> <span id="span2">Love</span>
@@ -59,12 +67,18 @@
               </p>
             </div>
             <div id="plano">
-              <button class="planoBtn" id="oneyear">
-                1 Year, 3 Photos, No Music - $4.99
-              </button>
-              <button class="planoBtn" id="lifetime">
-                Life Time, 7 Photos, With Music - $9.49
-              </button>
+              <div id="umDiv">
+
+                <button class="planoBtn" id="oneyear">
+                  1 Year, 4 Photos, No Music - $4.99
+                </button>
+              </div>
+              <div id="vidaDiv">
+
+                <button class="planoBtn" id="lifetime">
+                  Life Time, 8 Photos, With Music - $9.49
+                </button>
+              </div>
             </div>
             <div id="form">
               <div id="namedate">
@@ -208,15 +222,15 @@
         <div id="faq">
           <h1>Frequently Asked Questions (FAQ)</h1>
           <div class="faq-item">
-            <h2>What is Art&Joy?</h2>
+            <h2>What is ArtJoy?</h2>
             <p>
-              Art&Joy is a platform that allows couples to create personalized
+              ArtJoy is a platform that allows couples to create personalized
               relationship pages. You can add photos, a special message, and a
               live counter showing how long you've been together.
             </p>
           </div>
           <div class="faq-item">
-            <h2>How can I create a personalized page on Art&Joy?</h2>
+            <h2>How can I create a personalized page on ArtJoy?</h2>
             <p>
               To create a page, fill out the form with the couple's names,
               relationship start date, a message, and up to 8 photos. Then,
@@ -247,7 +261,7 @@
             </p>
           </div>
           <div class="faq-item">
-            <h2>What does it cost to create a page on Art&Joy?</h2>
+            <h2>What does it cost to create a page on ArtJoy?</h2>
             <p>
               Currently, it costs only $4.99 for the basic plan and $9.49 for
               the advanced plan.

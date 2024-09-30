@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       urlYtb = data.urlYtb;
       coupleName = data.name;
       coupleMessage = data.message;
-
-      document.getElementById("secondTitle").textContent = coupleName;
+      
       document.getElementById("headerTitle").textContent = coupleName;
       document.getElementById("message").textContent = coupleMessage;
 

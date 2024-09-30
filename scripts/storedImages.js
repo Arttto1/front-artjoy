@@ -30,18 +30,32 @@ let fileName;
 let storage;
 let db;
 
-// const muteBtn = document.getElementById("muteBtn");
-
 let selectedItem = null;
-// VARIAVEL PARA O NOME DO ARQUIVO CODIFICADO COM O DATENOW
-
-// VARIAVEL DO LINK GERADO PARA O USUARIO
-// let costumerUrl;
-
-// let vercelUrl =
-//   "https://api-artjoywebsite.vercel.app";
 
 let vercelUrl = "https://api-artjoywebsite.vercel.app";
+
+const mundoBtn = document.getElementById("mundo");
+const brasilBtn = document.getElementById("brasil");
+const mundoDiv = document.getElementById("mundoDiv");
+const brasilDiv = document.getElementById("brasilDiv");
+const oneyear = document.getElementById("oneyear");
+const lifeTime = document.getElementById("lifetime");
+
+mundoBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  mundoDiv.style.backgroundColor = "#d43f55";
+  brasilDiv.style.backgroundColor = "#f59eab";
+  oneyear.textContent = "1 Year, 4 Photos, No Music - $4.99";
+  lifeTime.textContent = "Life Time, 8 Photos, With Music - $9.49";
+});
+
+brasilBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  mundoDiv.style.backgroundColor = "#f59eab";
+  brasilDiv.style.backgroundColor = "#d43f55";
+  oneyear.textContent = "1 Ano, 4 Fotos, Sem Música - R$16,49";
+  lifeTime.textContent = "Vitalício, 8 Fotos, Com Música - R$29,99";
+});
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
@@ -188,6 +202,7 @@ async function uploadFiles(nameWithId, userEmail) {
 document.addEventListener("DOMContentLoaded", function () {
   // Simula um clique no botão 2 ao carregar a página
   btn2.click(); // Chama a função changeBg2()
+  mundoBtn.click();
 });
 
 // MUDA O BOTÃO DO PLANO E O VALOR
@@ -408,15 +423,3 @@ messageText.addEventListener("input", function () {
     messagePreview.textContent = messageText.value; // Atualiza com o valor do campo
   }
 });
-
-// const formData = new FormData(form);
-// const data = {
-//   date: formData.get("data-inicio"),
-//   name: formData.get("nome-casal"),
-//   message: formData.get("message"),
-//   urlYtb: formData.get("youtube-input"),
-// };
-
-// setInterval(function () {
-//   console.log(data); // Exibe o valor da variável no console
-// }, 5000);
