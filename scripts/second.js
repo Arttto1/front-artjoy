@@ -45,52 +45,45 @@ document.addEventListener("DOMContentLoaded", function () {
       urlYtb = data.urlYtb;
       coupleName = data.name;
       coupleMessage = data.message;
-      
       document.getElementById("headerTitle").textContent = coupleName;
       document.getElementById("message").textContent = coupleMessage;
 
       const imageContainer = document.getElementById("imageContainer");
       imageContainer.innerHTML = ""; // Limpa o contêiner antes de adicionar novas imagens
 
-      if (imageUrls && imageUrls.length > 0) {
+      if (imageUrls.length > 0) {
         let currentIndex = 0;
 
-        // Cria a primeira imagem
+        // Cria a imagem inicial
         const img = document.createElement("img");
         img.className = "coupleImg";
         img.src = imageUrls[currentIndex];
         imageContainer.appendChild(img);
+        let intervalId = null;
 
-        // Só inicia o intervalo de rotação quando a primeira imagem for completamente carregada
-        img.onload = () => {
-          console.log("Primeira imagem carregada, iniciando a rotação...");
+        // Função para iniciar o intervalo
+        const startImageRotation = () => {
+          if (intervalId) {
+            clearInterval(intervalId);
+          }
 
-          // Função para atualizar a imagem
-          const updateImage = () => {
+          intervalId = setInterval(() => {
             currentIndex++;
             if (currentIndex >= imageUrls.length) {
-              currentIndex = 0; // Reinicia se atingir o final do array
+              currentIndex = 0; // Reinicia o índice se passar do número de imagens
             }
             img.src = imageUrls[currentIndex];
-          };
-
-          // Inicia o intervalo de rotação de imagens
-          setInterval(updateImage, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
+          }, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
         };
 
-        // Tratamento de erro caso a imagem não carregue
-        img.onerror = () => {
-          console.error("Erro ao carregar a imagem.");
-        };
-      } else {
-        console.error("Nenhuma imagem encontrada.");
+        // Inicia a rotação de imagens
+        startImageRotation();
       }
 
       if (urlYtb) {
         muteBtn.style.display = "flex";
         initYouTubePlayer();
       }
-
       updateTimer();
       setInterval(updateTimer, 1000); // Inicie o intervalo do timer aqui
       document.getElementById("bodySecond").style.display = "flex";
