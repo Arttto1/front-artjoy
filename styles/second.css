@@ -70,7 +70,7 @@ html {
   border: 3px solid var(--light-blue);
   border-radius: 6px;
   /* height: 100%; */
-  aspect-ratio: 3 / 4;
+  /* aspect-ratio: 3 / 4; */
   object-fit: contain;
   display: block;
   max-width: 514.5px;
