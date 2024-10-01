@@ -95,25 +95,6 @@ function getEmbedUrl(videoUrl) {
 
 // MANDA AS FOTOS PARA O STORAGE
 
-function logToServer(messageLog) {
-  // Mude aqui
-  fetch("/log", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ messageLog }), // Mude aqui
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.text();
-    })
-    .then((data) => console.log(data))
-    .catch((err) => console.error("Erro ao enviar log:", err));
-}
-
 submitBtn.addEventListener("click", async (event) => {
   event.preventDefault();
 
@@ -160,6 +141,42 @@ submitBtn.addEventListener("click", async (event) => {
   }
 });
 
+async function convertToWebP(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+
+      img.onload = () => {
+        // Cria um canvas
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width; // Mantém a proporção
+        canvas.height = img.height; // Mantém a proporção
+        
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+
+        // Converte para WebP
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const webpFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".webp", { type: "image/webp" });
+            resolve(webpFile);
+          } else {
+            reject(new Error("Failed to convert image to WebP"));
+          }
+        }, "image/webp");
+      };
+
+      img.onerror = (error) => reject(error);
+    };
+
+    reader.onerror = (error) => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
+
 async function uploadFiles(nameWithId, userEmail) {
   if (youtubeInput.value.trim() !== "") {
     embedUrl = getEmbedUrl(videoUrl);
@@ -177,9 +194,10 @@ async function uploadFiles(nameWithId, userEmail) {
   // Adicionar os dados ao FormData como JSON string
   formData.append("data", JSON.stringify(data));
 
-  // Adiciona os arquivos ao FormData
-  for (const file of fileArray) {
-    // Certifique-se de que 'fileArray' é um array de arquivos válido
+  // Adiciona os arquivos ao FormData após conversão
+  const webpFiles = await Promise.all(fileArray.map(convertToWebP));
+
+  for (const file of webpFiles) {
     formData.append("files", file);
   }
 
