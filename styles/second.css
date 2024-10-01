@@ -64,6 +64,8 @@ html {
   width: 100%;
   max-height: 686px;
   max-width: 514.5px;
+  min-height: 686px;
+  min-width: 514.5px;
 }
 
 .coupleImg {
@@ -143,7 +145,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 100%;
+  /* min-height: 100%; */
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
