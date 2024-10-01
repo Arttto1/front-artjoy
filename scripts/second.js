@@ -52,33 +52,26 @@ document.addEventListener("DOMContentLoaded", function () {
       const imageContainer = document.getElementById("imageContainer");
       imageContainer.innerHTML = ""; // Limpa o contêiner antes de adicionar novas imagens
 
-      if (imageUrls.length > 0) {
+      if (imageUrls && imageUrls.length > 0) {
         let currentIndex = 0;
-
-        // Cria a imagem inicial
+      
         const img = document.createElement("img");
         img.className = "coupleImg";
         img.src = imageUrls[currentIndex];
         imageContainer.appendChild(img);
-        let intervalId = null;
-
-        // Função para iniciar o intervalo
-        const startImageRotation = () => {
-          if (intervalId) {
-            clearInterval(intervalId);
-          }
-
-          intervalId = setInterval(() => {
+      
+        img.onload = () => {
+          let intervalId = setInterval(() => {
             currentIndex++;
             if (currentIndex >= imageUrls.length) {
-              currentIndex = 0; // Reinicia o índice se passar do número de imagens
+              currentIndex = 0;
             }
+      
             img.src = imageUrls[currentIndex];
           }, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
         };
-
-        // Inicia a rotação de imagens
-        startImageRotation();
+      } else {
+        console.error("Nenhuma imagem encontrada.");
       }
 
       if (urlYtb) {

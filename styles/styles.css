@@ -248,7 +248,13 @@ label {
   text-align: center;
   height: 2.5rem;
   margin: 1rem 0;
+  margin-bottom: 0.25rem;
   align-content: center;
+}
+
+#ratio {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
 }
 
 .material-symbols-outlined {
