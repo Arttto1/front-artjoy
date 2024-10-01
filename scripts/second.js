@@ -54,21 +54,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (imageUrls && imageUrls.length > 0) {
         let currentIndex = 0;
-      
+
+        // Cria a primeira imagem
         const img = document.createElement("img");
         img.className = "coupleImg";
         img.src = imageUrls[currentIndex];
         imageContainer.appendChild(img);
-      
+
+        // Só inicia o intervalo de rotação quando a primeira imagem for completamente carregada
         img.onload = () => {
-          let intervalId = setInterval(() => {
+          console.log("Primeira imagem carregada, iniciando a rotação...");
+
+          // Função para atualizar a imagem
+          const updateImage = () => {
             currentIndex++;
             if (currentIndex >= imageUrls.length) {
-              currentIndex = 0;
+              currentIndex = 0; // Reinicia se atingir o final do array
             }
-      
             img.src = imageUrls[currentIndex];
-          }, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
+          };
+
+          // Inicia o intervalo de rotação de imagens
+          setInterval(updateImage, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
+        };
+
+        // Tratamento de erro caso a imagem não carregue
+        img.onerror = () => {
+          console.error("Erro ao carregar a imagem.");
         };
       } else {
         console.error("Nenhuma imagem encontrada.");
@@ -78,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         muteBtn.style.display = "flex";
         initYouTubePlayer();
       }
+
       updateTimer();
       setInterval(updateTimer, 1000); // Inicie o intervalo do timer aqui
       document.getElementById("bodySecond").style.display = "flex";
