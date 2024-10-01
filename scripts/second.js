@@ -7,7 +7,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player; // Variável para armazenar a instância do player
 let isPlaying = false;
 
-let vercelUrl = "https://api-artjoywebsite.vercel.app";
+let vercelUrl =
+  "https://api-artjoywebsite.vercel.app";
 
 // LINK DINÂMICO
 function getQueryParam(name) {
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch(`${vercelUrl}/api/submissions/${urlName}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Erro ao buscar dados");
+        throw new Error('Erro ao buscar dados');
       }
       return response.json();
     })
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       urlYtb = data.urlYtb;
       coupleName = data.name;
       coupleMessage = data.message;
-
+      
       document.getElementById("headerTitle").textContent = coupleName;
       document.getElementById("message").textContent = coupleMessage;
 
@@ -58,55 +59,26 @@ document.addEventListener("DOMContentLoaded", function () {
         const img = document.createElement("img");
         img.className = "coupleImg";
         img.src = imageUrls[currentIndex];
+        imageContainer.appendChild(img);
+        let intervalId = null;
 
-        // Espera a imagem carregar para obter as dimensões
-        img.onload = () => {
-          const width = img.naturalWidth;
-          const height = img.naturalHeight;
-
-          // Verifica a proporção da imagem
-          if (width > height) {
-            // Proporção 4:3 se largura for maior que altura
-            img.style.aspectRatio = "4 / 3";
-          } else {
-            // Proporção 3:4 se altura for maior ou igual à largura
-            img.style.aspectRatio = "3 / 4";
+        // Função para iniciar o intervalo
+        const startImageRotation = () => {
+          if (intervalId) {
+            clearInterval(intervalId);
           }
 
-          imageContainer.appendChild(img);
-
-          let intervalId = null;
-
-          // Função para iniciar o intervalo
-          const startImageRotation = () => {
-            if (intervalId) {
-              clearInterval(intervalId);
+          intervalId = setInterval(() => {
+            currentIndex++;
+            if (currentIndex >= imageUrls.length) {
+              currentIndex = 0; // Reinicia o índice se passar do número de imagens
             }
-
-            intervalId = setInterval(() => {
-              currentIndex++;
-              if (currentIndex >= imageUrls.length) {
-                currentIndex = 0; // Reinicia o índice se passar do número de imagens
-              }
-              img.src = imageUrls[currentIndex];
-
-              // Verifica a proporção da nova imagem após a troca
-              img.onload = () => {
-                const newWidth = img.naturalWidth;
-                const newHeight = img.naturalHeight;
-
-                if (newWidth > newHeight) {
-                  img.style.aspectRatio = "4 / 3";
-                } else {
-                  img.style.aspectRatio = "3 / 4";
-                }
-              };
-            }, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
-          };
-
-          // Inicia a rotação de imagens
-          startImageRotation();
+            img.src = imageUrls[currentIndex];
+          }, 3000); // Muda a imagem a cada 3000 ms (3 segundos)
         };
+
+        // Inicia a rotação de imagens
+        startImageRotation();
       }
 
       if (urlYtb) {
@@ -121,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching data:", error);
     });
 });
+
 
 // Função chamada quando a API do YouTube é carregada
 function initYouTubePlayer() {
@@ -340,3 +313,4 @@ startHeartCreation();
 setTimeout(() => {
   heartCount = 0; // Reseta o contador de corações
 }, 20000);
+

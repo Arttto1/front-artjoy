@@ -62,17 +62,20 @@ html {
 #imageContainer {
   display: block;
   width: 100%;
+  max-height: 686px;
   max-width: 514.5px;
 }
 
 .coupleImg {
   width: 100%;
-  /* border: 3px solid var(--light-blue); */
+  height: 100%;
+  border: 3px solid var(--light-blue);
   border-radius: 6px;
   /* height: 100%; */
-  /* aspect-ratio: 3 / 4; */
-  object-fit: contain;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   display: block;
+  max-height: 686px;
   max-width: 514.5px;
 }
 
