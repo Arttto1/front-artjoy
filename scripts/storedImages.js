@@ -41,21 +41,21 @@ const brasilDiv = document.getElementById("brasilDiv");
 const oneyear = document.getElementById("oneyear");
 const lifeTime = document.getElementById("lifetime");
 
-mundoBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  mundoDiv.style.backgroundColor = "#d43f55";
-  brasilDiv.style.backgroundColor = "#f59eab";
-  oneyear.textContent = "1 Year, 4 Photos, No Music - $4.99";
-  lifeTime.textContent = "Life Time, 8 Photos, With Music - $9.49";
-});
+// mundoBtn.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   mundoDiv.style.backgroundColor = "#d43f55";
+//   brasilDiv.style.backgroundColor = "#f59eab";
+//   oneyear.textContent = "1 Year, 4 Photos, No Music - $4.99";
+//   lifeTime.textContent = "Life Time, 8 Photos, With Music - $9.49";
+// });
 
-brasilBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  mundoDiv.style.backgroundColor = "#f59eab";
-  brasilDiv.style.backgroundColor = "#d43f55";
-  oneyear.textContent = "1 Ano, 4 Fotos, Sem Música - R$16,49";
-  lifeTime.textContent = "Vitalício, 8 Fotos, Com Música - R$29,99";
-});
+// brasilBtn.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   mundoDiv.style.backgroundColor = "#f59eab";
+//   brasilDiv.style.backgroundColor = "#d43f55";
+//   oneyear.textContent = "1 Ano, 4 Fotos, Sem Música - R$16,49";
+//   lifeTime.textContent = "Vitalício, 8 Fotos, Com Música - R$29,99";
+// });
 
 // Captura o valor do input
 youtubeInput.addEventListener("input", function () {
