@@ -13,7 +13,7 @@
     />
     <!-- <link rel="stylesheet" href="styles/second.css"/> -->
     <link rel="icon" href="images/coração-512x512.png" type="image/x-icon" />
-     <link rel="stylesheet" href="styles/botaoPais.css">
+    <link rel="stylesheet" href="styles/botaoPais.css" />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/photoPreview.css" />
     <link rel="stylesheet" href="styles/alertBox.css" />
@@ -45,12 +45,14 @@
           <div class="item1">
             <div id="botaoPais">
               <div id="mundoDiv">
-
-                <button id="mundo"><img src="images/mundo-512x512 (2).png" alt="WorldWide"></button>
+                <button id="mundo">
+                  <img src="images/mundo-512x512 (2).png" alt="WorldWide" />
+                </button>
               </div>
               <div id="brasilDiv">
-
-                <button id="brasil"><img src="images/brasil-512x512.png" alt=""></button>
+                <button id="brasil">
+                  <img src="images/brasil-512x512.png" alt="" />
+                </button>
               </div>
             </div>
             <div id="title">
@@ -68,13 +70,11 @@
             </div>
             <div id="plano">
               <div id="umDiv">
-
                 <button class="planoBtn" id="oneyear">
                   1 Year, 4 Photos, No Music - $4.99
                 </button>
               </div>
               <div id="vidaDiv">
-
                 <button class="planoBtn" id="lifetime">
                   Life Time, 8 Photos, With Music - $9.49
                 </button>
@@ -126,7 +126,10 @@
                   Upload your Photos
                 </label>
               </div>
-              <p id="ratio">Please make sure to upload portrait photos not landscape, for the best display results.</p>
+              <p id="ratio">
+                Please make sure to upload portrait photos not landscape, for
+                the best display results.
+              </p>
               <div id="photoPreview"></div>
               <div id="youtubeDiv">
                 <label for="youtubeInput"
@@ -148,9 +151,7 @@
               <div id="preview">
                 <p id="previewText">Preview Your Website 👇</p>
                 <div id="placeholder">
-                  <!-- ANIMAÇAO CORAÇÃO -->
                   <div id="heart-container"></div>
-                  <!-- FIM ANIMAÇÃO CORAÇÃO -->
 
                   <section id="secondSection">
                     <h1 id="headerTitle">Couple's Name</h1>
@@ -163,7 +164,6 @@
                     </div>
                     <div id="divImagePreview"></div>
                     <p id="messageSecond">Your message is going to be here!</p>
-                    <!-- <button id="muteBtn">Click Me!</button> -->
                   </section>
                 </div>
               </div>
@@ -324,6 +324,307 @@
             <li>
               <a href="/terms.html" style="color: white; text-decoration: none"
                 >Terms of Service</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+
+    <main id="mainLoaderBr">
+      <form id="websiteForm" method="POST" action="/webhook">
+        <input type="hidden" value="<%= csrfToken %>" name="_csrf" />
+        <div class="container">
+          <div class="item1">
+            <div id="botaoPais">
+              <div id="mundoDiv">
+                <button id="mundo">
+                  <img src="images/mundo-512x512 (2).png" alt="Mundial" />
+                </button>
+              </div>
+              <div id="brasilDiv">
+                <button id="brasil">
+                  <img src="images/brasil-512x512.png" alt="Brasil" />
+                </button>
+              </div>
+            </div>
+            <div id="title">
+              <h2>
+                <span id="span1">Presenteie seu</span>
+                <span id="span2">Amor</span>
+              </h2>
+              <p>
+                Crie um site personalizado para a pessoa amada com um contador
+                dinâmico de tempo de relacionamento e outros recursos especiais!
+              </p>
+              <p id="fillForm">
+                Preencha o formulário e receba seu site personalizado + QR para
+                compartilhar com seu amor.
+              </p>
+            </div>
+            <div id="plano">
+              <div id="umDiv">
+                <button class="planoBtn" id="oneyear">
+                  1 Ano, 4 Fotos, Sem Música - R$24,99
+                </button>
+              </div>
+              <div id="vidaDiv">
+                <button class="planoBtn" id="lifetime">
+                  Vitalício, 8 Fotos, Com Música - R$44,99
+                </button>
+              </div>
+            </div>
+            <div id="form">
+              <div id="namedate">
+                <div id="name">
+                  <label id="namelabel" for="nomecasal">Nome do Casal:</label>
+                  <input
+                    type="text"
+                    id="nomecasal"
+                    name="nome-casal"
+                    placeholder="Por exemplo: Arthur e Joyce (sem emojis)"
+                  />
+                </div>
+                <div id="date">
+                  <label for="datainicio" id="datelabel"
+                    >Início do Relacionamento:</label
+                  >
+                  <input type="date" id="datainicio" name="data-inicio" />
+                </div>
+              </div>
+              <div id="messagelabel">
+                <label for="message">Escreva uma mensagem:</label>
+              </div>
+              <div id="messagearea">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Escreva uma bela mensagem aqui!"
+                ></textarea>
+              </div>
+              <div id="email">
+                <label id="emailLabel" for="userEmail"
+                  >Digite seu endereço de e-mail:</label
+                >
+                <input
+                  type="email"
+                  id="userEmail"
+                  name="user-email"
+                  placeholder="voce@exemplo.com"
+                />
+              </div>
+              <div id="filediv">
+                <input type="file" accept="image/*" id="fileInput" multiple />
+                <label id="filelabel" for="fileInput">
+                  <span class="material-symbols-outlined">add_a_photo</span>
+                  Carregar suas Fotos
+                </label>
+              </div>
+              <p id="ratio">
+                Por favor, certifique-se de enviar fotos no formato retrato, não
+                paisagem, para obter os melhores resultados.
+              </p>
+              <div id="photoPreview"></div>
+              <div id="youtubeDiv">
+                <label for="youtubeInput"
+                  >Insira uma música do YouTube (Opcional):</label
+                >
+                <div id="ytbBtnInput">
+                  <input
+                    id="youtubeInput"
+                    name="youtube-Input"
+                    placeholder="URL do YouTube"
+                  />
+                  <button id="check-video"><span>É válida?</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divItem2">
+            <div class="item2">
+              <div id="preview">
+                <p id="previewText">Visualize seu Site 👇</p>
+                <div id="placeholder">
+                  <div id="heart-container"></div>
+
+                  <section id="secondSection">
+                    <h1 id="headerTitle">Nome do Casal</h1>
+
+                    <p id="timer">Estamos juntos há:</p>
+                    <div id="photoPlaceholder">
+                      <p id="photoPlaceholderText">Foto do Casal</p>
+
+                      <div class="square"><p>Imagem</p></div>
+                    </div>
+                    <div id="divImagePreview"></div>
+                    <p id="messageSecond">Sua mensagem aparecerá aqui!</p>
+                  </section>
+                </div>
+              </div>
+              <div id="botão">
+                <button type="submit" id="submitButton" disabled>
+                  Criar Site
+                </button>
+                <div class="wrap">
+                  <div class="loading">
+                    <div class="bounceball"></div>
+                    <div class="text">Enviando para o Pagamento</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div id="thirdSection">
+        <div id="howWorks">
+          <h2>Como Funciona?</h2>
+          <div id="steps">
+            <div class="step">
+              <p>1 - Insira as Informações 📋</p>
+            </div>
+            <div class="step">
+              <p>2 - Conclua o Pagamento 💰</p>
+            </div>
+            <div class="step">
+              <p>3 - Receba o Site + QR Code no Seu E-mail ✉️</p>
+            </div>
+            <div class="step">
+              <p>4 - Surpreenda Seu Amor ❤️</p>
+            </div>
+          </div>
+          <div id="stepOnOff">
+            <div id="stepsCelular">
+              <div id="step1">
+                <div class="stepCelular">
+                  <p>1 - Insira as Informações 📋</p>
+                </div>
+                <div class="stepCelular">
+                  <p>2 - Conclua o Pagamento 💰</p>
+                </div>
+              </div>
+              <div id="step2">
+                <div class="stepCelular">
+                  <p>3 - Receba o Site + QR Code no Seu E-mail ✉️</p>
+                </div>
+                <div class="stepCelular">
+                  <p>4 - Surpreenda Seu Amor ❤️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="faq">
+          <h1>Perguntas Frequentes (FAQ)</h1>
+          <div class="faq-item">
+            <h2>O que é o ArtJoy?</h2>
+            <p>
+              O ArtJoy é uma plataforma que permite aos casais criar páginas
+              personalizadas de relacionamento. Você pode adicionar fotos, uma
+              mensagem especial e um contador ao vivo mostrando há quanto tempo
+              vocês estão juntos.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>Como posso criar uma página personalizada no ArtJoy?</h2>
+            <p>
+              Para criar uma página, preencha o formulário com os nomes do
+              casal, data de início do relacionamento, uma mensagem e até 8
+              fotos. Em seguida, clique no botão "Criar Site" e conclua o
+              pagamento.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>O que está incluído na minha página personalizada?</h2>
+            <p>
+              Sua página contará com um contador ao vivo mostrando há quanto
+              tempo vocês estão juntos, uma apresentação de fotos e uma mensagem
+              personalizada. Além disso, corações caem na tela com uma linda
+              animação.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>Como recebo minha página após o pagamento?</h2>
+            <p>
+              Após o pagamento, você receberá um código QR para compartilhar com
+              seu parceiro e um link por e-mail para acessar a página.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>A página personalizada tem validade?</h2>
+            <p>
+              Com o plano básico, sim – a página dura por 1 ano. No plano
+              avançado, a página está disponível para sempre.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>Quanto custa criar uma página no ArtJoy?</h2>
+            <p>
+              Atualmente, custa apenas $4,99 para o plano básico e $9,49 para o
+              plano avançado.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>Quanto tempo leva para receber o código QR por e-mail?</h2>
+            <p>
+              Os pagamentos com cartão de crédito e débito são processados
+              instantaneamente.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h2>Quais são os métodos de pagamento aceitos?</h2>
+            <p>Aceitamos pagamentos via cartão de crédito ou débito.</p>
+          </div>
+          <div class="faq-item">
+            <h2>Como posso entrar em contato com o suporte ao cliente?</h2>
+            <p>
+              Você pode entrar em contato com nossa equipe de suporte pelo
+              e-mail artjoy.app@gmail.com
+            </p>
+          </div>
+        </div>
+        <a href="#" class="backTop"><button>Criar Site</button></a>
+        <div id="youtubePlayer"></div>
+        <div id="customAlert" class="hidden">
+          <div class="alert-content">
+            <span id="alertMessage"></span>
+            <button id="closeAlertBtn">OK</button>
+          </div>
+        </div>
+      </div>
+      <footer
+        style="
+          background-color: #333;
+          color: white;
+          padding: 10px 0;
+          text-align: center;
+        "
+      >
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
+          <p>&copy; 2024 ArtJoy. Todos os direitos reservados.</p>
+          <p style="color: rgb(46, 194, 46)">
+            Usamos Stripe para pagamentos seguros. Suas informações estão
+            seguras conosco!
+          </p>
+          <ul
+            style="
+              list-style-type: none;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+            "
+          >
+            <li>
+              <a
+                href="/privacy.html"
+                style="color: white; text-decoration: none"
+                >Política de Privacidade</a
+              >
+            </li>
+            <li>
+              <a href="/terms.html" style="color: white; text-decoration: none"
+                >Termos de Serviço</a
               >
             </li>
           </ul>

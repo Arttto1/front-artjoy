@@ -1,3 +1,26 @@
+const fetchUserCountry = async () => {
+  try {
+    const response = await fetch("/api/getUserCountry"); // Faz a chamada para o servidor
+    const { country } = await response.json(); // Extrai a resposta JSON com o país
+    return country;
+  } catch (error) {
+    console.error("Erro ao buscar o país:", error);
+    return "US"; // Padrão: 'US' caso ocorra erro
+  }
+};
+
+window.addEventListener("load", async function () {
+  const country = await fetchUserCountry(); // Busca o país do usuário
+
+  if (country === "BR") {
+    // Se for Brasil, exibe o mainLoaderBr
+    document.getElementById("mainLoaderBr").style.display = "block";
+  } else {
+    // Se não for Brasil, exibe o mainLoader padrão
+    document.getElementById("mainLoader").style.display = "block";
+  }
+});
+
 
 // Função para calcular a diferença entre a data atual e a data de início
 const dataInicio = document.getElementById("datainicio");
@@ -109,56 +132,7 @@ function createHeart() {
   setTimeout(() => heart.remove(), fallDuration * 1000 * 0.7);
 }
 setInterval(createHeart, 500)
-// let intervalId;
-// let resizeTimeout;
-
-// // Função para calcular o intervalo com base no tamanho da tela
-// function calculateInterval() {
-//   const width = window.innerWidth;
-//   const height = window.innerHeight;
-
-//   // Exemplo de ajuste de intervalo: mais corações em telas maiores
-//   if (width > 1200) {
-//     return 200; // Mais rápido em telas grandes
-//   } else if (width > 800) {
-//     return 600; // Médio em telas médias
-//   } else {
-//     return 1000; // Mais lento em telas pequenas
-//   }
-// }
-
-// // Função para iniciar a criação de corações
-// function startHeartCreation() {
-//   // Limpar qualquer intervalo existente
-//   clearInterval(intervalId);
-
-//   // Ajustar o intervalo com base no tamanho atual da tela
-//   const interval = calculateInterval();
-
-//   // Iniciar o setInterval com o novo intervalo
-//   intervalId = setInterval(createHeart, interval);
-//   console.log(interval)
-// }
-
-// // Event listener para detectar mudanças no tamanho da tela
-// window.addEventListener("resize", function () {
-//   // Limpa o timeout anterior se houver (evita chamadas múltiplas desnecessárias)
-//   clearTimeout(resizeTimeout);
-
-//   // Espera 2 segundos antes de chamar a função para evitar problemas de desempenho
-//   resizeTimeout = setTimeout(() => {
-//     startHeartCreation();
-//   }, 2000);
-// });
-
-// Chamar a função ao carregar a página
-// startHeartCreation();
 
 setTimeout(() => {
   heartCount = 0; // Reseta o contador de corações
 }, 20000);
-
-// FUNÇAO PARA MOSTRAR A PAGINA QUANDO ESTIVER CARREGADA
-window.addEventListener("load", function () {
-  document.getElementById("mainLoader").style.display = "block";
-});
