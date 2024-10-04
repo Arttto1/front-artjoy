@@ -1,6 +1,6 @@
 const fetchUserCountry = async () => {
   try {
-    const response = await fetch("/api/getUserCountry"); // Faz a chamada para o servidor
+    const response = await fetch('https://api-artjoywebsite.vercel.app/api/getUserCountry'); // Faz a chamada para o servidor
     const { country } = await response.json(); // Extrai a resposta JSON com o país
     return country;
   } catch (error) {
