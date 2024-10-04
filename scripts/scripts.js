@@ -1,6 +1,6 @@
 const fetchUserCountry = async () => {
   try {
-    const response = await fetch('https://api-artjoywebsite.vercel.app/api/getUserCountry'); // Faz a chamada para o servidor
+    const response = await fetch("https://api-artjoywebsite.vercel.app/api/getUserCountry"); // Faz a chamada para o servidor
     const { country } = await response.json(); // Extrai a resposta JSON com o país
     return country;
   } catch (error) {
@@ -9,17 +9,21 @@ const fetchUserCountry = async () => {
   }
 };
 
+// Função que executa quando a página carrega
 window.addEventListener("load", async function () {
   const country = await fetchUserCountry(); // Busca o país do usuário
 
   if (country === "BR") {
     // Se for Brasil, exibe o mainLoaderBr
     document.getElementById("mainLoaderBr").style.display = "block";
+    document.getElementById("mainLoader").style.display = "none";
   } else {
     // Se não for Brasil, exibe o mainLoader padrão
     document.getElementById("mainLoader").style.display = "block";
+    document.getElementById("mainLoaderBr").style.display = "none";
   }
 });
+
 
 
 // Função para calcular a diferença entre a data atual e a data de início

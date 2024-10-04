@@ -220,7 +220,7 @@ async function uploadFiles(nameWithId, userEmail) {
 document.addEventListener("DOMContentLoaded", function () {
   // Simula um clique no botão 2 ao carregar a página
   btn2.click(); // Chama a função changeBg2()
-  mundoBtn.click();
+  // mundoBtn.click();
 });
 
 // MUDA O BOTÃO DO PLANO E O VALOR
