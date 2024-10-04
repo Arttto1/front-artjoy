@@ -1,5 +1,5 @@
 #botaoPais{
-    display: none;
+    display: flex;
     flex-direction: row;
 }
 
