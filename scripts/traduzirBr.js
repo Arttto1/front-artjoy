@@ -97,7 +97,7 @@ function translatePageToPortuguese() {
   faqItems[5].querySelector("h2").textContent =
     "Quanto custa criar uma página no ArtJoy?";
   faqItems[5].querySelector("p").textContent =
-    "Atualmente, custa apenas R$ 24,99 para o plano básico e R$ 44,99 para o plano avançado.";
+    "Atualmente, custa apenas R$ 16,49 para o plano básico e R$ 29,99 para o plano avançado.";
 
   // Pergunta 7
   faqItems[6].querySelector("h2").textContent =
@@ -115,7 +115,7 @@ function translatePageToPortuguese() {
   faqItems[8].querySelector("h2").textContent =
     "Como posso entrar em contato com o suporte ao cliente?";
   faqItems[8].querySelector("p").textContent =
-    "Você pode entrar em contato com nossa equipe de suporte através do e-mail artjoy.app@gmail.com.";
+    "Você pode entrar em contato com nossa equipe de suporte através do e-mail artjoy.app@gmail.com";
 
   // Botão 'Create Website'
   document.querySelector(".backTop button").textContent = "Criar Site";
@@ -302,35 +302,39 @@ function updateTimerBr() {
   document.getElementById("timer").innerHTML = timerText;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    async function fetchUserCountry() {
-      try {
-        // Faz a requisição à rota do backend
-        const response = await fetch(
-          "https://api-artjoywebsite.vercel.app/api/get-country"
-        );
-        const data = await response.json();
+// document.addEventListener("DOMContentLoaded", function () {
+//     async function fetchUserCountry() {
+//       try {
+//         // Faz a requisição à rota do backend
+//         const response = await fetch(
+//           "https://api-artjoywebsite.vercel.app/api/get-country"
+//         );
+//         const data = await response.json();
   
-        // Verifica o país e chama as funções correspondentes
-        if (data.country === "BR") {
-          translatePageToPortuguese();
-          // Se o país for Brasil, usa updateTimerBr
-          setInterval(updateTimerBr, 1000);
-          dataInicio.addEventListener("input", updateTimerBr);
-        } else {
-          // Se não for Brasil, usa updateTimer padrão
-          setInterval(updateTimer, 1000);
-          dataInicio.addEventListener("input", updateTimer);
-        }
-      } catch (error) {
-        console.error("Erro ao buscar o país do usuário:", error);
-        // Em caso de erro, você pode optar por um comportamento padrão
-        setInterval(updateTimer, 1000);
-        dataInicio.addEventListener("input", updateTimer);
-      }
-      console.log(data.country)
-    }
+//         // Verifica o país e chama as funções correspondentes
+//         if (data.country === "BR") {
+//           translatePageToPortuguese();
+//           // Se o país for Brasil, usa updateTimerBr
+//           setInterval(updateTimerBr, 1000);
+//           dataInicio.addEventListener("input", updateTimerBr);
+//         } else {
+//           // Se não for Brasil, usa updateTimer padrão
+//           setInterval(updateTimer, 1000);
+//           dataInicio.addEventListener("input", updateTimer);
+//         }
+//       } catch (error) {
+//         console.error("Erro ao buscar o país do usuário:", error);
+//         // Em caso de erro, você pode optar por um comportamento padrão
+//         setInterval(updateTimer, 1000);
+//         dataInicio.addEventListener("input", updateTimer);
+//       }
+//       console.log(data.country)
+//     }
   
-    // Chama a função ao carregar a página
-    fetchUserCountry();
-  });
+//     // Chama a função ao carregar a página
+//     fetchUserCountry();
+//   });
+translatePageToPortuguese();
+// Se o país for Brasil, usa updateTimerBr
+setInterval(updateTimerBr, 1000);
+dataInicio.addEventListener("input", updateTimerBr);
