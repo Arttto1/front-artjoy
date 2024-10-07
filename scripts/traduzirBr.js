@@ -328,6 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(updateTimer, 1000);
         dataInicio.addEventListener("input", updateTimer);
       }
+      console.log(data.country)
     }
   
     // Chama a função ao carregar a página
