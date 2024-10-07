@@ -121,12 +121,12 @@ document.getElementById("muteBtn").addEventListener("click", () => {
     // Verifica se o player está definido
     if (isPlaying) {
       player.pauseVideo(); // Pausa o vídeo
-      muteBtn.textContent = "Play Music";
+      muteBtn.textContent = "Tocar Música";
       isPlaying = false; // Atualiza o estado para refletir que o vídeo está pausado
     } else {
       player.playVideo();
       player.unMute(); // Despausa o vídeo
-      muteBtn.textContent = "Pause Music";
+      muteBtn.textContent = "Pausar Música";
       isPlaying = true; // Atualiza o estado para refletir que o vídeo está tocando
     }
   } else {
@@ -196,25 +196,25 @@ function updateTimer() {
   }
 
   // Atualiza o conteúdo do elemento com o tempo decorrido
-  let timerText = "We've been together for:<br>";
+  let timerText = "Estamos juntos há:<br>";
 
   // Mostrar "years" apenas se for maior que 0, e ajustar o plural
   if (years > 0) {
-    timerText += `${years} ${years === 1 ? "year" : "years"}<br>`;
+    timerText += `${years} ${years === 1 ? "ano" : "anos"}<br>`;
   }
 
   // Mostrar "months" apenas se for maior que 0, e ajustar o plural
   if (months > 0) {
-    timerText += `${months} ${months === 1 ? "month" : "months"}<br>`;
+    timerText += `${months} ${months === 1 ? "mês" : "meses"}<br>`;
   }
 
   // Mostrar "days" apenas se for maior que 0, e ajustar o plural
   if (days > 0) {
-    timerText += `${days} ${days === 1 ? "day" : "days"}<br>`;
+    timerText += `${days} ${days === 1 ? "dia" : "dias"}<br>`;
   }
 
   // Adicionar sempre horas, minutos e segundos
-  timerText += `${displayHours} hours <br> ${displayMinutes} minutes <br>and ${displaySeconds} seconds`;
+  timerText += `${displayHours} horas <br> ${displayMinutes} minutos <br>e ${displaySeconds} segundos`;
 
   // Atualiza o conteúdo do elemento com o tempo decorrido
   document.getElementById("timer").innerHTML = timerText;
