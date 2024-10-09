@@ -100,7 +100,7 @@ checkVideo.addEventListener("click", async function (event) {
   event.preventDefault();
 
   if (!videoUrl) {
-    alertBox("Type a music URL");
+    alertBox("Adicione um URL válido.");
     console.log(alertMessage);
     return;
   }
@@ -116,14 +116,14 @@ checkVideo.addEventListener("click", async function (event) {
     const volume = player.getVolume(); // Pega o volume do player
     if (volume === 0) {
       alertBox(
-        "This video cannot be embedded due to copyright policies or because the author has disabled embedding."
+        "Este vídeo não pode ser utilizado por questões de direitos autorais ou porque o autor não permitiu sua utilização."
       );
     } else {
-      alertBox("This is a valid YouTube video. It can be embedded!");
+      alertBox("Este é um vídeo válido!");
     }
   } else {
     alertBox(
-      "This video cannot be embedded due to copyright policies or because the author has disabled embedding."
+      "Este vídeo não pode ser utilizado por questões de direitos autorais ou porque o autor não permitiu sua utilização."
     );
   }
   player.destroy();
