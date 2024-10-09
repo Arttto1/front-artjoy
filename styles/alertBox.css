@@ -48,3 +48,12 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    #customAlert {
+        width: 90%;
+    }
+    .alert-content {
+        font-size: 1.2rem;
+    }
+}
